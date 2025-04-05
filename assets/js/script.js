@@ -280,7 +280,6 @@ addEventListener('DOMContentLoaded', () => {
 
     if (autoUpdateURL) {
         document.body.classList.add('autoUpdateURL');
-        document.querySelector('.item.auto > input').checked = true;
     }
 
     if (single) {
