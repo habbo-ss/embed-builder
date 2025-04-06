@@ -882,6 +882,7 @@ addEventListener('DOMContentLoaded', () => {
                                 })
                                 .then(res => res.json())
                                 .then(res => {
+                                    console.log(res)
                                     browse.classList.remove('loading');
                                     if (!res.success) {
                                         console.log('Upload failed:', res.data?.error || res.error?.message || res);
