@@ -70,7 +70,7 @@ body {
     line-height: 1;
     margin: 0px;
     padding: 0px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     overflow: hidden;
     background-color: var(--fullEmbedBackground);
     color: #fff;
@@ -353,7 +353,7 @@ button,
 input,
 select,
 textarea {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     text-rendering: optimizelegibility;
 }
 
@@ -363,7 +363,7 @@ button,
 input,
 select,
 textarea {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     text-rendering: optimizelegibility;
 }
 
