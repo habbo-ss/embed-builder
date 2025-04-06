@@ -869,7 +869,8 @@ addEventListener('DOMContentLoaded', () => {
                         if (el.target.files[0].size > 10 * 1024 * 1024)
                             return uploadError('File is too large. Maximum size is 10 MB.', browse, 5000);
 
-                        browse.classList.add('loading');formData.append("image", file);
+                        browse.classList.add('loading');
+                        formData.append("image", el.target.files[0]);
 
                         fetch("https://api.imgur.com/3/image", {
                             method: "POST",
