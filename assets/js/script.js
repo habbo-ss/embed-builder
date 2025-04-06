@@ -869,34 +869,37 @@ addEventListener('DOMContentLoaded', () => {
                         if (el.target.files[0].size > 10 * 1024 * 1024)
                             return uploadError('File is too large. Maximum size is 10 MB.', browse, 5000);
 
-                        formData.append("image", el.target.files[0]);
-
                         browse.classList.add('loading');
-
-                        fetch('https://script.google.com/macros/s/AKfycbzSL1mnKfaFy0EPPe9Ev3K3a7H_cirYCUaaTdXZiGPqznzs-SA3vgRF4W1Q8XaJY-dz/exec', { method: 'POST', body: formData })
-                            .then(res => res.json())
-                            .then(res => {
-                                browse.classList.remove('loading');
-                                if (!res.success) {
-                                    console.log('Upload failed:', res.data?.error || res.error?.message || res);
-                                    return uploadError(res.data?.error || res.error?.message || "Request failed. (Check dev-console)", browse);
-                                }
-
-                                imgSrc(edit.querySelector('.editIcon > .imgParent'), res.data.url);
-                                const linkInput = edit.querySelector('input[type=text]');
-                                const textInput = edit.querySelector('input[class$=Name], input[class$=Text]');
-
-                                linkInput.value = res.data.url;
-                                // focus on the next empty input if the field requires a name or text to display eg. footer or author.
-                                !textInput?.value && textInput?.focus();
-
-                                console.info(`${res.data.url} will be deleted in ${expiration / 60 / 60} hours. To delete it now, visit ${res.data.delete_url} and scroll down to find the delete button.`);
-
-                                linkInput.dispatchEvent(new Event('input'));
-                            }).catch(err => {
-                                browse.classList.remove('loading');
-                                error(`Request failed with error: ${err}`)
-                            })
+                        const reader = new FileReader();
+                        reader.readAsDataURL(el.target.files[0]);
+                        reader.onload = function () {
+                            const base64String = reader.result.split(",")[1];
+                            fetch('https://script.google.com/macros/s/AKfycbzSL1mnKfaFy0EPPe9Ev3K3a7H_cirYCUaaTdXZiGPqznzs-SA3vgRF4W1Q8XaJY-dz/exec', {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({ image: base64String })
+                                })
+                                .then(res => res.json())
+                                .then(res => {
+                                    browse.classList.remove('loading');
+                                    if (!res.success) {
+                                        console.log('Upload failed:', res.data?.error || res.error?.message || res);
+                                        return uploadError(res.data?.error || res.error?.message || "Request failed. (Check dev-console)", browse);
+                                    }
+    
+                                    imgSrc(edit.querySelector('.editIcon > .imgParent'), res.data.url);
+                                    const linkInput = edit.querySelector('input[type=text]');
+                                    const textInput = edit.querySelector('input[class$=Name], input[class$=Text]');
+    
+                                    linkInput.value = res.data.url;
+                                    // focus on the next empty input if the field requires a name or text to display eg. footer or author.
+                                    !textInput?.value && textInput?.focus();
+                                    linkInput.dispatchEvent(new Event('input'));
+                                }).catch(err => {
+                                    browse.classList.remove('loading');
+                                    error(`Request failed with error: ${err}`)
+                                })
+                            }
                     }
 
                     fileInput.click();
