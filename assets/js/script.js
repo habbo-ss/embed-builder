@@ -874,11 +874,7 @@ addEventListener('DOMContentLoaded', () => {
                         reader.readAsDataURL(el.target.files[0]);
                         reader.onload = function () {
                             const base64String = reader.result.split(",")[1];
-                            console.log(base64String);
-                            fetch('https://script.google.com/macros/s/AKfycbyY48frABaJXD9gXRqJEZcIc-aXgow47WS_7RNRxHubRluu-B-UDHDc42drYJ22INPFOQ/exec', {
-                                method: "GET",
-                                headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" }
-                                })
+                            fetch(`https://script.google.com/macros/s/AKfycbyY48frABaJXD9gXRqJEZcIc-aXgow47WS_7RNRxHubRluu-B-UDHDc42drYJ22INPFOQ/exec?image=${base64String}`)
                                 .then(res => res.json())
                                 .then(res => {
                                     console.log(res)
