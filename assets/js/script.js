@@ -1,6 +1,12 @@
 window.options ??= {};
 window.inIframe ??= top !== self;
 
+window.addEventListener("message", function(event) {
+    if (event.data === "requestData") {
+        event.source.postMessage("Hello from Iframe!", event.origin);
+    }
+});
+
 let params = new URLSearchParams(location.search),
     hasParam = param => params.get(param) !== null,
     dataSpecified = options.data || params.get('data'),
