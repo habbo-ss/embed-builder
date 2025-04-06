@@ -869,34 +869,35 @@ addEventListener('DOMContentLoaded', () => {
                         if (el.target.files[0].size > 10 * 1024 * 1024)
                             return uploadError('File is too large. Maximum size is 10 MB.', browse, 5000);
 
-                        browse.classList.add('loading');
-                        const reader = new FileReader();
-                        reader.readAsDataURL(el.target.files[0]);
-                        reader.onload = function () {
-                            const base64String = reader.result.split(",")[1];
-                            fetch(`https://script.google.com/macros/s/AKfycbyY48frABaJXD9gXRqJEZcIc-aXgow47WS_7RNRxHubRluu-B-UDHDc42drYJ22INPFOQ/exec?image=${base64String}`)
-                                .then(res => res.json())
-                                .then(res => {
-                                    console.log(res)
-                                    browse.classList.remove('loading');
-                                    if (!res.success) {
-                                        console.log('Upload failed:', res.data?.error || res.error?.message || res);
-                                        return uploadError(res.data?.error || res.error?.message || "Request failed. (Check dev-console)", browse);
-                                    }
-    
-                                    imgSrc(edit.querySelector('.editIcon > .imgParent'), res.data.url);
-                                    const linkInput = edit.querySelector('input[type=text]');
-                                    const textInput = edit.querySelector('input[class$=Name], input[class$=Text]');
-    
-                                    linkInput.value = res.data.url;
-                                    // focus on the next empty input if the field requires a name or text to display eg. footer or author.
-                                    !textInput?.value && textInput?.focus();
-                                    linkInput.dispatchEvent(new Event('input'));
-                                }).catch(err => {
-                                    browse.classList.remove('loading');
-                                    error(`Request failed with error: ${err}`)
-                                })
+                        browse.classList.add('loading');formData.append("image", file);
+
+                        fetch("https://api.imgur.com/3/image", {
+                            method: "POST",
+                            headers: {
+                                "Authorization": "Client-ID a6e01b97b1163f3"
+                            },
+                            body: formData
+                        })
+                        .then(res => res.json())
+                        .then(res => {
+                            browse.classList.remove('loading');
+                            if (!res.success) {
+                                console.log('Upload failed:', res.data?.error || res.error?.message || res);
+                                return uploadError(res.data?.error || res.error?.message || "Request failed. (Check dev-console)", browse);
                             }
+
+                            imgSrc(edit.querySelector('.editIcon > .imgParent'), res.data.link);
+                            const linkInput = edit.querySelector('input[type=text]');
+                            const textInput = edit.querySelector('input[class$=Name], input[class$=Text]');
+
+                            linkInput.value = res.data.link;
+                            // focus on the next empty input if the field requires a name or text to display eg. footer or author.
+                            !textInput?.value && textInput?.focus();
+                            linkInput.dispatchEvent(new Event('input'));
+                        }).catch(err => {
+                            browse.classList.remove('loading');
+                            error(`Request failed with error: ${err}`)
+                        })
                     }
 
                     fileInput.click();
