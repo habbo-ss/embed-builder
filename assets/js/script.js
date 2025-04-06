@@ -877,7 +877,6 @@ addEventListener('DOMContentLoaded', () => {
                             console.log(base64String);
                             fetch('https://script.google.com/macros/s/AKfycbzSL1mnKfaFy0EPPe9Ev3K3a7H_cirYCUaaTdXZiGPqznzs-SA3vgRF4W1Q8XaJY-dz/exec', {
                                 method: "POST",
-                                mode: "no-cors",
                                 headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
                                 body: JSON.stringify({ image: base64String })
                                 })
