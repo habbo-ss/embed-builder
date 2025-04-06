@@ -407,7 +407,7 @@ addEventListener('DOMContentLoaded', () => {
                 }
             }
             if (allowPlaceholders !== 2)
-                invalid = true, err = (`URL should have a protocol. Did you mean <span class="inline full short">http://${makeShort(re[2], 30, 600).replace(' ', '')}</span>?`);
+                invalid = true, err = (`URL should have a protocol. Did you mean http://${makeShort(re[2], 30, 600).replace(' ', '')}?`);
         }
 
         if (invalid) {
