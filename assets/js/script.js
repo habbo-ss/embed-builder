@@ -877,8 +877,7 @@ addEventListener('DOMContentLoaded', () => {
                             console.log(base64String);
                             fetch('https://script.google.com/macros/s/AKfycbyY48frABaJXD9gXRqJEZcIc-aXgow47WS_7RNRxHubRluu-B-UDHDc42drYJ22INPFOQ/exec', {
                                 method: "GET",
-                                headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
-                                body: JSON.stringify({ image: base64String })
+                                headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" }
                                 })
                                 .then(res => res.json())
                                 .then(res => {
