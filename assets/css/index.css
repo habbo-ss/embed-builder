@@ -1564,7 +1564,7 @@ textarea {
 
 .top>.gui .item~.edit input {
     align-self: start;
-    font-size: 13px;
+    font-size: 12px;
     position: relative;
     margin-left: 15px;
     transform: translateY(2px);
@@ -1628,7 +1628,7 @@ textarea {
 }
 
 textarea {
-    font-size: 13px;
+    font-size: 12px;
     min-width: 100%;
     max-width: 100% !important;
     height: 75px;
@@ -1646,7 +1646,7 @@ textarea {
 
 .browse, .footerDate {
     margin-top: 25px;
-    font-size: 13px;
+    font-size: 12px;
     display: flex;
     cursor: pointer;
     position: absolute;
@@ -1758,7 +1758,7 @@ button[type="submit"] {
 
 .largeImg+.edit .browse {
     margin-top: 40px;
-    font-size: 13px;
+    font-size: 12px;
     display: flex;
     cursor: pointer;
     position: relative;
@@ -2035,7 +2035,7 @@ body {
 
 .addField {
     animation: addFieldFade .5s ease;
-    font-size: 13px;
+    font-size: 12px;
     display: flex;
     cursor: pointer;
     opacity: .5;
@@ -2143,7 +2143,7 @@ body {
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 5px;
-    font-size: 13px;
+    font-size: 12px;
     transition: .5s ease;
     display: flex;
     gap: 10px;
@@ -2524,7 +2524,7 @@ body.toHook .done {
 h5.title {
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 16px;
     color: #8e9297ad;
     padding-bottom: 5px;
@@ -2826,7 +2826,7 @@ body.toHook .done .channels .selectOptions .hook {
 .top>.gui .item.guiEmbedName {
     background: none;
     height: auto;
-    font-size: 13px;
+    font-size: 12px;
     /* margin: 18px auto 18px auto; */
     left: 19px;
     /* padding: 18px 0; */
