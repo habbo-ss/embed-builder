@@ -1220,7 +1220,7 @@ body.gui .top>.CodeMirror {
     scrollbar-color: #545456 #1a1a1e
     scrollbar-width: thin;
     scrollbar-width: 7px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     transition: .5s ease;
 }
 
@@ -2915,7 +2915,7 @@ body.single .top>.gui .item.guiEmbedName {
     font-size: .8rem;
     display: inline-flex;
     position: absolute;
-    bottom: 5px;
+    bottom: 15px;
     left: 50%;
     transform: translateX(-50%);
     align-items: center;
