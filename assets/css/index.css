@@ -150,7 +150,7 @@ body:not(.no-preview):not(.no-editor) .main {
     border-radius: 5px;
     background-color: #292b2f;
     color: rgb(228, 225, 225);
-    border: 1px solid var(--background-tertiary);
+    border: none;
     overflow: auto;
 }
 
@@ -181,7 +181,7 @@ body:not(.no-preview):not(.no-editor) .main {
     scrollbar-color: #26272d #36393f;
     scrollbar-width: thin;
     font-family: DsWhitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: var(--fullEmbedBackground);
+    background-color: var(--side2Background);
 }
 
 ::-webkit-scrollbar {
@@ -1241,6 +1241,7 @@ body.gui .top>.CodeMirror {
 
 .top>.gui * {
     scrollbar-color: #545456 #121214;
+    scrollbar-width: thin;
 }
 
 .top>.gui * ::-webkit-scrollbar {
@@ -1474,7 +1475,7 @@ body:not(.gui) .chooser>.back {
 }
 
 .top {
-    scrollbar-color: #202225 #292b2f;
+    scrollbar-color: #545456 #1a1a1e;
     scrollbar-width: thin;
     overflow: hidden;
 }
