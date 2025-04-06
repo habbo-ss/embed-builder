@@ -359,6 +359,8 @@ addEventListener('DOMContentLoaded', () => {
     const notif = document.querySelector('.notification');
 
     error = (msg, time = '5s') => {
+        alert(msg);
+        return;
         notif.innerHTML = msg;
         notif.style.removeProperty('--startY');
         notif.style.removeProperty('--startOpacity');
