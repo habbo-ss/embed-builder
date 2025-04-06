@@ -1831,7 +1831,7 @@ button[type="submit"] {
     width: 95%;
     height: 100%;
     border-radius: 4px;
-    background: var(--side1Background);
+    background: #202024;
     border-radius: 5px;
     margin-bottom: 2px;
     transition: .3s ease;
@@ -1849,7 +1849,7 @@ button[type="submit"] {
 }
 
 .fields+.edit .fieldInner .designerFieldName {
-    background: #17171a;
+    background: #202024;
 }
 
 body {
