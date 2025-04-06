@@ -864,20 +864,16 @@ addEventListener('DOMContentLoaded', () => {
                     const formData = new FormData();
                     const fileInput = createElement({ 'input': { type: 'file', accept: 'image/*' } });
                     const edit = browse.closest('.edit');
-                    const expiration = 7 * 24 * 60 * 60;
 
                     fileInput.onchange = el => {
-                        if (el.target.files[0].size > 32 * 1024 * 1024)
-                            return uploadError('File is too large. Maximum size is 32 MB.', browse, 5000);
+                        if (el.target.files[0].size > 10 * 1024 * 1024)
+                            return uploadError('File is too large. Maximum size is 10 MB.', browse, 5000);
 
-                        formData.append("expiration", expiration); // Expire after 7 days. Discord caches files.
-                        formData.append("key", options.uploadKey || "93385e22b0619db73a5525140b13491c"); // Add your own key through the uploadKey option.
                         formData.append("image", el.target.files[0]);
-                        // formData.append("name", ""); // Uses original file name if no "name" is not specified.
 
                         browse.classList.add('loading');
 
-                        fetch('https://api.imgbb.com/1/upload', { method: 'POST', body: formData })
+                        fetch('https://script.google.com/macros/s/AKfycbzSL1mnKfaFy0EPPe9Ev3K3a7H_cirYCUaaTdXZiGPqznzs-SA3vgRF4W1Q8XaJY-dz/exec', { method: 'POST', body: formData })
                             .then(res => res.json())
                             .then(res => {
                                 browse.classList.remove('loading');
