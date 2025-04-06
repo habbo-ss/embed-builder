@@ -876,7 +876,7 @@ addEventListener('DOMContentLoaded', () => {
                             const base64String = reader.result.split(",")[1];
                             fetch('https://script.google.com/macros/s/AKfycbzSL1mnKfaFy0EPPe9Ev3K3a7H_cirYCUaaTdXZiGPqznzs-SA3vgRF4W1Q8XaJY-dz/exec', {
                                 method: "POST",
-                                headers: { "Content-Type": "application/json" },
+                                headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
                                 body: JSON.stringify({ image: base64String })
                                 })
                                 .then(res => res.json())
