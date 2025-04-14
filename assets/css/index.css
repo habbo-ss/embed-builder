@@ -2919,10 +2919,14 @@ body.single .top>.gui .item.guiEmbedName {
     transform: translateX(-50%);
     align-items: center;
     z-index: 20;
-    background: #212226;
+    background: #41444a;
     padding: .5rem 1rem;
     border-radius: 7px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.guiEmbedAdd:hover {
+    background: #212226;
 }
 
 .guiEmbedAdd .icon {
