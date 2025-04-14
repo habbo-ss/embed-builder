@@ -178,7 +178,7 @@ body:not(.no-preview):not(.no-editor) .main {
     justify-content: center;
     vertical-align: center;
     overflow: auto;
-    scrollbar-color: #26272d #36393f;
+    scrollbar-color: #26272d #121214;
     scrollbar-width: thin;
     font-family: DsWhitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
     background-color: var(--side2Background);
