@@ -1528,7 +1528,7 @@ textarea {
 }
 
 .ttle~input {
-    width: 100%;
+    width: calc(100% - 30px);
 }
 
 .ttle::after {
@@ -2826,12 +2826,11 @@ body.toHook .done .channels .selectOptions .hook {
     background: none;
     height: auto;
     font-size: 12px;
-    /* margin: 18px auto 18px auto; */
     left: 19px;
-    /* padding: 18px 0; */
-    margin: auto;
     padding: 10px 0 10px 0;
     z-index: 1;
+    width: calc(90% - 22px);
+    word-break: break-word;
 }
 
 .top>.gui .item.guiEmbedName::before {
